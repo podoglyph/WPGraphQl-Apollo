@@ -3,17 +3,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Posts from './components/Posts';
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
+import {Access} from './components/Access';
 
 const Index = () => <h2>Home</h2>;
-const Login = () => <h2>Login</h2>;
+const Granted = () => <h2>Granted</h2>;
 
-// Send user to login. Get code back. Then make post request with the code and the client secret. If all goes well you should get a token back in a JSON string.
-const clientId = '64184';
-const clientSecret = 'bHtboxPuEVeXSBNVaVoMcPRUGCkiJII04cINNCLYFOckpmpvDB2HCXYunq4nDLz6';
-const redirectUri = 'http://localhost:3000';
-const blog = 'http://localhost:8888/wordpress-react-oauth2/wordpress/';
-
-const loginUrl = `https://public-api.wordpress.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&blog=${blog}`;
+// http://localhost:3000/granted#access_token=pstcqvo4bmrbw0yh2b6v0hmbcnkdoul6gtel3li6&expires_in=3600&token_type=Bearer&scope=basic
 
 const client = new ApolloClient({
   uri: "http://localhost:8888/wordpress-react-oauth2/wordpress/graphql"
@@ -31,7 +26,7 @@ const AppRouter = () => (
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a href={loginUrl}>About</a>
+              <Link to="/access/">Access</Link>
             </li>
             <li>
               <Link to="/posts/">Posts</Link>
@@ -40,8 +35,9 @@ const AppRouter = () => (
         </nav>
 
         <Route path="/" exact component={Index} />
-        <Route path="/about/" component={Login} />
+        <Route path="/access/" component={Access} />
         <Route path="/posts/" component={Posts} />
+        <Route path="/granted/" component={Granted} />
 
       </div>
     </ApolloProvider>

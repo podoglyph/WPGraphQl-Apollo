@@ -4,15 +4,17 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.22",
-    "apollo-client": "^2.5.0-alpha.2",
+    "apollo-client": "^2.4.7",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "react": "^16.6.3",
     "react-apollo": "^2.3.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
-    "wpcom-oauth": "^0.3.4"
+    "react-scripts": "2.1.1"
+  },
+  "devDependecies": {
+    "@babel/core": "^7.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.2.3"
+  }
 }
